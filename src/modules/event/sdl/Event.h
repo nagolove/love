@@ -23,7 +23,7 @@
 
 // LOVE
 #include "event/Event.h"
-#include "audio/Source.h"
+//#include "audio/Source.h"
 
 // SDL
 #include <SDL_events.h>
@@ -79,7 +79,7 @@ private:
 	static std::map<SDL_Keycode, love::keyboard::Keyboard::Key> keys;
 
 #ifdef LOVE_ANDROID
-	std::vector<love::audio::Source*> pausedSources;
+	//std::vector<love::audio::Source*> pausedSources;
 #endif
 
 }; // Event

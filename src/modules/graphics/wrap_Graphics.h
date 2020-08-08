@@ -31,7 +31,7 @@
 #include "wrap_Shader.h"
 #include "wrap_Mesh.h"
 #include "wrap_Text.h"
-#include "wrap_Video.h"
+//#include "wrap_Video.h"
 #include "Graphics.h"
 
 namespace love

@@ -29,7 +29,7 @@
 #include "SpriteBatch.h"
 #include "ParticleSystem.h"
 #include "Font.h"
-#include "Video.h"
+//#include "Video.h"
 #include "Text.h"
 #include "common/deprecation.h"
 
@@ -199,10 +199,12 @@ Font *Graphics::newDefaultFont(int size, font::TrueTypeRasterizer::Hinting hinti
 	return newFont(r.get(), filter);
 }
 
-Video *Graphics::newVideo(love::video::VideoStream *stream, float dpiscale)
-{
-	return new Video(this, stream, dpiscale);
-}
+/*
+ *Video *Graphics::newVideo(love::video::VideoStream *stream, float dpiscale)
+ *{
+ *    return new Video(this, stream, dpiscale);
+ *}
+ */
 
 love::graphics::SpriteBatch *Graphics::newSpriteBatch(Texture *texture, int size, vertex::Usage usage)
 {

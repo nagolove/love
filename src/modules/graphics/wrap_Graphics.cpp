@@ -26,7 +26,7 @@
 #include "font/Rasterizer.h"
 #include "filesystem/Filesystem.h"
 #include "filesystem/wrap_Filesystem.h"
-#include "video/VideoStream.h"
+//#include "video/VideoStream.h"
 #include "image/wrap_Image.h"
 #include "common/Reference.h"
 #include "math/wrap_Transform.h"
@@ -1661,23 +1661,25 @@ int w_newText(lua_State *L)
 	return 1;
 }
 
-int w_newVideo(lua_State *L)
-{
-	luax_checkgraphicscreated(L);
-
-	if (!luax_istype(L, 1, love::video::VideoStream::type))
-		luax_convobj(L, 1, "video", "newVideoStream");
-
-	auto stream = luax_checktype<love::video::VideoStream>(L, 1);
-	float dpiscale = (float) luaL_optnumber(L, 2, 1.0);
-	Video *video = nullptr;
-
-	luax_catchexcept(L, [&]() { video = instance()->newVideo(stream, dpiscale); });
-
-	luax_pushtype(L, video);
-	video->release();
-	return 1;
-}
+/*
+ *int w_newVideo(lua_State *L)
+ *{
+ *    luax_checkgraphicscreated(L);
+ *
+ *    if (!luax_istype(L, 1, love::video::VideoStream::type))
+ *        luax_convobj(L, 1, "video", "newVideoStream");
+ *
+ *    auto stream = luax_checktype<love::video::VideoStream>(L, 1);
+ *    float dpiscale = (float) luaL_optnumber(L, 2, 1.0);
+ *    Video *video = nullptr;
+ *
+ *    luax_catchexcept(L, [&]() { video = instance()->newVideo(stream, dpiscale); });
+ *
+ *    luax_pushtype(L, video);
+ *    video->release();
+ *    return 1;
+ *}
+ */
 
 int w_setColor(lua_State *L)
 {
@@ -2926,7 +2928,7 @@ static const luaL_Reg functions[] =
 	{ "newShader", w_newShader },
 	{ "newMesh", w_newMesh },
 	{ "newText", w_newText },
-	{ "_newVideo", w_newVideo },
+	//{ "_newVideo", w_newVideo },
 
 	{ "validateShader", w_validateShader },
 
@@ -3052,7 +3054,7 @@ static const lua_CFunction types[] =
 	luaopen_shader,
 	luaopen_mesh,
 	luaopen_text,
-	luaopen_video,
+	//luaopen_video,
 	0
 };
 
